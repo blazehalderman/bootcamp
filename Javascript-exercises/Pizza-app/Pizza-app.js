@@ -38,176 +38,199 @@ var pizza = {};
 pageAddCustomer.style.display = 'block';
 var currentPage = pageAddCustomer;
 
-buttonCustomer.addEventListener( 'click', function() {
-  customer = new Customer(firstName.value, lastName.value, email.value, state.value, zip.value);
-  order = new Order(customer);
+buttonCustomer.addEventListener('click', function() {
+    customer = new Customer(firstName.value, lastName.value, email.value, state.value, zip.value);
+    order = new Order(customer);
 
-  loadPizzaOptions();
+    loadPizzaOptions();
 
-  console.log('');
-  console.log('------ Customer Order Created! ------');
-  console.log(customer);
-  console.log(order);
+    console.log('');
+    console.log('------ Customer Order Created! ------');
+    console.log(customer);
+    console.log(order);
 
-  navigate(currentPage, pageAddPizza);
+    navigate(currentPage, pageAddPizza);
 });
 
 // *********** Add Pizzas Page ***********
-buttonPizza.addEventListener( 'click', function() {
-  pizza = new Pizza();
-  var pizzaSize = new PizzaSize(pizzaDropdown.dataset.name, pizzaDropdown.dataset.cost);
-  pizza.setSize(pizzaSize);
-  order.addPizza(pizza);
+buttonPizza.addEventListener('click', function() {
+    pizza = new Pizza();
+    var pizzaSize = new PizzaSize(pizzaDropdown.dataset.name, pizzaDropdown.dataset.cost);
+    pizza.setSize(pizzaSize);
+    order.addPizza(pizza);
 
-  console.log('');
-  console.log('------ Pizza Added! ------');
-  console.log(pizza);
-  console.log(order.pizzas);
+for (var i = 0, i <  form.elements.length; i++) {
 
-  navigate(currentPage, pageCart);
+}
+
+    console.log('');
+    console.log('------ Pizza Added! ------');
+    console.log(pizza);
+    console.log(order.pizzas);
+
+    navigate(currentPage, pageCart);
 });
 
 var loadPizzaOptions = function() {
-  var caretText = ' <span class="caret"></span>';
-  pizzaDropdown.innerHTML = "Select a Pizza" + caretText;
-  delete pizzaDropdown.dataset.name;
-  delete pizzaDropdown.dataset.cost;
-  pizzaSizeList.innerHTML = '';
+    var caretText = ' <span class="caret"></span>';
+    pizzaDropdown.innerHTML = "Select a Pizza" + caretText;
+    delete pizzaDropdown.dataset.name;
+    delete pizzaDropdown.dataset.cost;
+    pizzaSizeList.innerHTML = '';
 
 
-  for (i = 0; i < allPizzaSizes.length; i++) {
-    var listItemLink = document.createElement('a');
-    listItemLink.href = '#';
-    listItemLink.dataset.name = allPizzaSizes[i].name;
-    listItemLink.dataset.cost = allPizzaSizes[i].cost;
-    listItemLink.innerHTML = allPizzaSizes[i].name;
+    for (i = 0; i < allPizzaSizes.length; i++) {
+        var listItemLink = document.createElement('a');
+        listItemLink.href = '#';
+        listItemLink.dataset.name = allPizzaSizes[i].name;
+        listItemLink.dataset.cost = allPizzaSizes[i].cost;
+        listItemLink.innerHTML = allPizzaSizes[i].name;
 
-    listItemLink.addEventListener( 'click', function() {
-      pizzaDropdown.innerHTML = this.innerHTML + caretText;
-      pizzaDropdown.dataset.name = this.dataset.name;
-      pizzaDropdown.dataset.cost = this.dataset.cost;
-    });
+        listItemLink.addEventListener('click', function() {
+            pizzaDropdown.innerHTML = this.innerHTML + caretText;
+            pizzaDropdown.dataset.name = this.dataset.name;
+            pizzaDropdown.dataset.cost = this.dataset.cost;
+        });
 
-    var listItem = document.createElement('li');
-    listItem.appendChild(listItemLink);
-    pizzaSizeList.appendChild(listItem);
-  }
+        var listItem = document.createElement('li');
+        listItem.appendChild(listItemLink);
+        pizzaSizeList.appendChild(listItem);
+    }
+
+}
+
+for (i = 0; i < allToppings.length; i++) {
+    var thisTopping = allToppings[i];
+    var toppingDiv = document.createElement('div');
+    var toppingLabel = document.createElement('label');
+    var toppingInput = document.createElement('input');
+    var toppingLabelText = document.createTextNode(allToppings[i].name);
+
+    toppingDiv.addClass('checkbox');
+    toppingInput.type = 'checkbox';
+    toppingInput.dataset.name = thisTopping.name;
+    toppingInput.dataset.name = thisTopping.cost;
+
+    toppingLabel.appendChild(toppingInput);
+    toppinglabel.appendChild(toppingLabelText);
+    toppingDiv.appendChild(toppingLabel);
+    toppingList.appendChild(toppingDiv);
 
 }
 
 // *********** Show Cart Page ***********
-buttonCart.addEventListener( 'click', function() {
-  var deliveryPerson = deliveryPeople[ Math.floor(Math.random() * deliveryPeople.length) ];
-  order.addDeliveryPerson(deliveryPerson);
+buttonCart.addEventListener('click', function() {
+    var deliveryPerson = deliveryPeople[Math.floor(Math.random() * deliveryPeople.length)];
+    order.addDeliveryPerson(deliveryPerson);
 
-  console.log('');
-  console.log('------ Order Complete! ------');
-  console.log(customer);
-  console.log(order);
+    console.log('');
+    console.log('------ Order Complete! ------');
+    console.log(customer);
+    console.log(order);
 
-  navigate(currentPage, pageReceipt);
+    navigate(currentPage, pageReceipt);
 });
 
-linkAddMorePizzas.addEventListener( 'click', function() {
-  loadPizzaOptions();
-  navigate(currentPage, pageAddPizza);
+linkAddMorePizzas.addEventListener('click', function() {
+    loadPizzaOptions();
+    navigate(currentPage, pageAddPizza);
 });
 
 
 // *********** Navigation ***********
 var navigate = function(pageFrom, pageTo) {
-  pageFrom.style.display = 'none';
-  currentPage = pageTo;
-  currentPage.style.display = 'block';
+    pageFrom.style.display = 'none';
+    currentPage = pageTo;
+    currentPage.style.display = 'block';
 }
 
 // Nav links
 for (i = 0; i < navLinks.length; i++) {
-  navLinks[i].addEventListener( 'click', function() {
-    switch (this.id) {
-      case 'link-customer':
-        navigate(currentPage, pageAddCustomer);
-        break;
+    navLinks[i].addEventListener('click', function() {
+        switch (this.id) {
+            case 'link-customer':
+                navigate(currentPage, pageAddCustomer);
+                break;
 
-      case 'link-pizza':
-        navigate(currentPage, pageAddPizza);
-        break;
+            case 'link-pizza':
+                navigate(currentPage, pageAddPizza);
+                break;
 
-      case 'link-cart':
-        navigate(currentPage, pageCart);
-        break;
+            case 'link-cart':
+                navigate(currentPage, pageCart);
+                break;
 
-      case 'link-receipt':
-        navigate(currentPage, pageReceipt);
-        break;
+            case 'link-receipt':
+                navigate(currentPage, pageReceipt);
+                break;
 
-      default:
-        console.log('404');
-    }
-  });
+            default:
+                console.log('404');
+        }
+    });
 }
 
 // *********** App Objects ***********
 
-var Customer = ( function() {
-  var incrementedId = 1;
+var Customer = (function() {
+    var incrementedId = 1;
 
-  return function Customer(firstName, lastName, email, state, zip) {
-    this.id = incrementedId++,
-    this.firstName = firstName,
-    this.lastName = lastName,
-    this.email = email,
-    this.state = state,
-    this.zip = zip
-  }
-
-} )();
-
-var Order = ( function(customer) {
-  var incrementedId = 10001;
-
-  return function Order(customer) {
-    this.id = incrementedId++,
-    this.customerId = customer.id,
-    this.deliveryPerson = {},
-    this.pizzas = [],
-    this.totalCost = 0,
-    this.addPizza = function(pizza) {
-      this.pizzas.push(pizza);
-      this.totalCost += pizza.totalCost;
-    },
-    this.addDeliveryPerson = function(deliveryPerson) {
-      this.deliveryPerson = deliveryPerson;
+    return function Customer(firstName, lastName, email, state, zip) {
+        this.id = incrementedId++,
+            this.firstName = firstName,
+            this.lastName = lastName,
+            this.email = email,
+            this.state = state,
+            this.zip = zip
     }
-  }
-} )();
+
+})();
+
+var Order = (function(customer) {
+    var incrementedId = 10001;
+
+    return function Order(customer) {
+        this.id = incrementedId++,
+            this.customerId = customer.id,
+            this.deliveryPerson = {},
+            this.pizzas = [],
+            this.totalCost = 0,
+            this.addPizza = function(pizza) {
+                this.pizzas.push(pizza);
+                this.totalCost += pizza.totalCost;
+            },
+            this.addDeliveryPerson = function(deliveryPerson) {
+                this.deliveryPerson = deliveryPerson;
+            }
+    }
+})();
 
 var Pizza = function() {
-  this.toppings = [],
-  this.totalCost = 0,
-  this.size = {},
-  this.setSize = function(size) {
-    this.size = size;
-    this.totalCost += parseInt(size.cost)
-  }
-  this.addTopping = function(topping){
-    this.toppings.push(topping);
-    this.totalCost += parseFloat(topping.cost);
-  }
+    this.toppings = [],
+        this.totalCost = 0,
+        this.size = {},
+        this.setSize = function(size) {
+            this.size = size;
+            this.totalCost += parseInt(size.cost)
+        }
+    this.addTopping = function(topping) {
+        this.toppings.push(topping);
+        this.totalCost += parseFloat(topping.cost);
+    }
 }
 
 var Topping = function(name, cost) {
-  this.name = name,
-  this.cost = cost
+    this.name = name,
+        this.cost = cost
 }
 
 var PizzaSize = function(name, cost) {
-  this.name = name,
-  this.cost = parseFloat(cost)
+    this.name = name,
+        this.cost = parseFloat(cost)
 }
 
 var DeliveryPerson = function(name, phone, car) {
-  this.name = name,
-  this.phone = phone,
-  this.car = car
+    this.name = name,
+        this.phone = phone,
+        this.car = car
 }
