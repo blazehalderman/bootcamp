@@ -1,0 +1,56 @@
+html {
+  background-image: url(/Users/Blaze/Downloads/eyecon-game-assets/images/eyecons-bg.jpg);
+}
+ .content-wrapper {
+  background-image:url(/Users/Blaze/Downloads/eyecon-game-assets/images/eyecons-splash.jpg);
+  width: 1024px;
+  height: 1024px;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  background-position: center;
+}
+
+#play_button {
+  height: 78px;
+  width: 78px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  margin-top: 705px;
+  margin-left: 421px;
+}
+
+#secplay_button {
+  height: 78px;
+  width: 78px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  margin-top: 705px;
+  margin-left: 107px;
+  }
+
+#how_button {
+  height: 78px;
+  width: 78px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  margin-top: 13px;
+  margin-left: 230px;
+}
+
+#sechow_button {
+  height: 78px;
+  width: 78px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  margin-top: 0px;
+  margin-left: 204px;
+}
+
+#who_button {
+  height: 78px;
+  width: 78px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  margin-top: 0px;
+  margin-left: 109px;
+}
