@@ -1,0 +1,51 @@
+.wrapper {
+  background-image: url(/Users/Blaze/Downloads/eyecon-game-assets/images/default-landscape.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+}
+
+#game_head {
+  border-radius: 10px;
+  top: 5px;
+  left: 5px;
+  position: absolute;
+  z-index: 100;
+}
+
+#eyecon_bg{
+  border-radius: 10px;
+  top: 5px;
+  left: 5px;
+  position: absolute;
+  z-index: 99;
+}
+
+.game_timer {
+  text-align: center;
+  color: #0E991D;
+  z-index: 100;
+  font-weight: 500;
+  position: absolute;
+  left: 110px;
+  top: 20px;
+}
+
+#clock {
+  font-size: 25px;
+  text-shadow: 2px 2px #0E0E0E;
+}
+
+#time_start {
+  font-size: 10px;
+  color: #868282;
+  text-shadow: 1px 1px #0E0E0E;
+
+}
+
+#remaining_value {
+  font-size: 10px;
+  color: #868282;
+  text-shadow: 1px 1px #0E0E0E;
+}
