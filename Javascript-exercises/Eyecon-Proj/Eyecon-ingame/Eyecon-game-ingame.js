@@ -2,8 +2,8 @@ var minute = document.getElementById("minute");
 var second = document.getElementById("second");
 var tileRem = document.getElementById("tileRem");
 
-/* ---- Timer ---*/
 
+/* ---- Timer ---*/
 var Clock = function() {
     var time = 120;
     this.start = function() {
@@ -26,152 +26,134 @@ var clock = new Clock();
 clock.start();
 /* --- Timer --- */
 
-var pairTotal = function() {
-    //total tiles on board
-    var pairCount = 50;
 
-    //match pairCount with tiles on board
-
-
-    //Take total pairCount, decrement by user input(-2) pairs
-
-
-    //
-}
+//Declare prototypes
+var Tile = function(img, zIndex) {
+    var randomImg = Math.floor(Math.random() * 37);
+    this.img = tileSet[randomImg];
+    this.zIndex;
+};
 
 
 
 
 /* GAMEBOARD OFFICIAL CONTINUED */
-var tileSet = [
-    "..\assets\images\eyecons\set6\set6-tile-0.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-1.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-2.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-3.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-4.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-5.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-6.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-7.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-8.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-9.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-10.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-11.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-12.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-13.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-14.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-15.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-16.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-17.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-18.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-19.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-20.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-21.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-22.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-23.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-24.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-25.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-26.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-27.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-28.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-29.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-30.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-31.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-32.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-33.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-34.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-35.jpg",
-    "..\assets\images\eyecons\set6\set6-tile-36.jpg"
 
+var tileSet = [
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-0.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-1.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-2.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-3.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-4.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-5.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-6.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-7.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-8.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-9.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-10.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-11.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-12.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-13.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-14.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-15.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-16.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-17.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-18.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-19.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-20.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-21.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-22.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-23.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-24.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-25.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-26.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-27.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-28.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-29.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-30.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-31.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-32.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-33.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-34.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-35.jpg",
+    "../eyecon-game-assets/images/eyecons/set6/set6-tile-36.jpg"
 ];
 
-var Tile = function(img, Index) {
-  var randomImg = Math.floor(Math.random() * 37);
-    this.img = tileSet[randomImg];
-    this.Index;
-}
-
-
-var allTiles = [];
-var fiftyTiles = function() {
-  for(i = 0; i < 50; i++) {
-    allTiles.push(new Tile());
-  };
-};
-fiftyTiles();
-console.log(allTiles);
+//  Add 56 divs to board (in a loop in javascript)
+//    - id=index, data-count=0
 
 $(document).ready(function() {
-  for(i = 0; i < 56; i++) {
-    var idName = "tileSpot" + i;
-    $("#board").append('<div id='+ idName +' " class="tileSpaces" data-count="0" />');
-      $("#" + idName).css("z-index", "0");
-      // for(j = 0; j < 3; j++) {
-      //   if(j = 1) {
-      //     $("#" + idName).css("z-index", "1");
-      //   }
-      //   if(j = 2) {
-      //     $("#" + idName).css("z-index", "2");
-      //   }
-      //   if(j = 3) {
-      //     $("#" + idName).css("z-index", "3");
-      //   }
-      // }
+    for (i = 0; i < 56; i++) {
+        $("#board").append('<div id=' + i + ' " class="tileSpaces" data-count="0" />');
+        //$("#" + i).css("z-index", "0");
     }
+    console.log(i);
 });
 
+//  Create array with 50 pairs of tiles (you can make each tile a div)
+var allTiles = [];
+var fiftyTiles = [];
 
-// var setBlanks = function() {
-//     var blanks = Math.floor(Math.random() * 68);
-//     for (i = 0; i < blanks; i++) {
-//         var blankSpot = Math.floor(Math.random() * 55);
-//         while (allTiles[blankSpot] === "blank") {
-//             var blankSpot = Math.floor(Math.random() * 55);
-//         }
-//         allTiles[blankSpot] = "blank";
-//         allTiles[blankSpot + 56] = "blank";
-//         allTiles[blankSpot + 112] = "blank";
-//     }
+var newTiles = function() {
+    for (i = 0; i < 50; i++) {
+        fiftyTiles.push(new Tile());
+    };
+};
+
+newTiles();
+var doubleFiftyTiles = function() {
+    allTiles.push(fiftyTiles);
+    allTiles.push(fiftyTiles);
+};
+
+doubleFiftyTiles();
+
+console.log(allTiles);
+
+
+//  Loop through array...
+//  for each item (div) in array
+//    randomNumber = generateRandomBetween0and55() (you will need to make this function)
 //
-// }
+//    get data-count of game board div with id=randomNumber
+//    if data-count < 3
+//      append this div to the game board div
+//      set z-index = data-count
+//      set left and top position to data-count * -2
+//      set data-count attribute to data-count + 1
+//    else
+//      get a new random number and repeat this process
+//      USE FUNCTIONS to encapsulate this
+//    end
 //
-// var tilePopulate = function() {
-//   for(var i = 0; i < 3; i++) {
-//     for(var j = 0; j < 56; j++) {
-//       if(allTiles[(56 * i)+ j] !== "blank") {
-//         allTiles[(56 * i) + j] = new Tile();
-//       }
-//     }
-//   }
-// }
-//
-// tilePopulate();
-// console.log(allTiles);
 
-// -------- Clock --------
+// loop through Tile Array, and randomly place on board if data count is less than 3
+// than increment board data-count by 1 and
+// set z-index = data-count
+// set left and top position to data-count * -2
+// set data-count attribute to data-count + 1
 
-var minute = document.getElementById("minute");
-var second = document.getElementById("second");
-var tileRem = document.getElementById("tileRem");
-
-/* ---- Timer ---*/
-var Clock = function() {
-    var time = 120;
-    this.start = function() {
-        var runTime = setInterval(function() {
-            if (time <= 0) {
-                clearInterval(runTime);
-            } else {
-                time--;
-                minute.innerHTML = parseInt(time / 60);
-                if (time % 60 < 10) {
-                    second.innerHTML = "0" + time % 60;
-                } else {
-                    second.innerHTML = time % 60;
-                }
-            };
-        }, 1000);
+var randomSelection = function() {
+  for(var i = 0, i < 56; i++) {
+    var randomNum = Math.floor(Math.random() * 55);
+     $("#" + i) = randomNum
+    if($("#" + i).data("count") < 3) {
+          this.data("count", 1++);
+        $("#" + i).append("<div z-index="newCount"/>")
+      }
+      // else {
+      //
+      // }
     }
-}
-var clock = new Clock();
-clock.start();
-/* --- Timer --- */
+  };
+
+  randomSelection();
+
+
+//
+//
+//
+//
+//
+//
+//
