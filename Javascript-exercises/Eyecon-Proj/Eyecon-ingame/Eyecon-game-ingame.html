@@ -7,34 +7,39 @@
     <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
   </head>
   <body class="wrapper">
+    <main>
     <header>
       <figure class="head_images">
         <img id="eyecon_bg" src="/Users/Blaze/Desktop/bootcamp/Javascript-exercises/Eyecon-Proj/eyecon-game-assets/images/eyecons-backplate-landscape-set1.png" alt="eyecon bg">
         <img id="game_head" src="/Users/Blaze/Desktop/bootcamp/Javascript-exercises/Eyecon-Proj/eyecon-game-assets/images/eyecons-bar-landscape-2.png" alt="head image">
       </figure>
-      <div class="game_timer">
-        <p id="clock">2:00</p>
-        <p id="time_start">Qualifying Time: 2:00</p>
-        <p id="remaining_value">100 remaining</p>
+      <div id="game_menu">
+        <button id="logout_but" type="button"></button>
       </div>
-      <div id="eyeons_logo">
+      <div class="game_timer">
+        <div>
+          <p id="clock"><span id="minute">2</span>:<span id="second">00</span></p>
+          <p id="time_start">Qualifying Time: 2:00</p>
+          <p id="remaining_value"><span id="tileRem">50</span> pairs remaining</p>
+        </div>
+      </div>
+      <div id="eyecons_logo">
 
       </div>
     </header>
-    <section class="game_buttons">
-      <div id="pause_button">
-
-      </div>
-      <div id="help_button">
-
-      </div>
-    </section>
+      <aside class="game_buttons">
+        <button id="button_1" type="button"></button>
+        <button id="button_2" type="button"></button>
+      </aside>
     <section class="game_icons">
-      <div id="icon">
-
-      </div>
+      <!--  Game board used for the tiles
+      Size 8 x 7 to append new divs to.-->
+    <div id="board">
+      
+    </div>
     </section>
-  </body>
+  </main>
+      <script src="/Users/Blaze/Desktop/bootcamp/Javascript-exercises/Eyecon-Proj/Eyecon-ingame/Eyecon-game-ingame.js"></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="Eyecon-game-ingame.js" type="javascript/text"></script>
+  </body>
 </html>
